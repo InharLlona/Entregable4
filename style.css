@@ -1,0 +1,26 @@
+.cContenedor{
+    display:flex;
+}
+
+
+.cNumeros{
+    display: flex;
+    flex-direction: column;
+}
+
+.cOperadores{
+    padding: 10px;
+    display:flex;
+    justify-content: space-between;
+    flex-direction:column;
+}
+
+button{
+    border:1px solid black;
+    border-radius: 1mm;
+}
+
+button:active{
+    position: relative;
+    top: 1px;
+}
