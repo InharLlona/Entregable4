@@ -2,23 +2,84 @@
 
 
 document.getElementById("idPrimer-numero").addEventListener("keyup",asignarValorUno);
-document.getElementById("idSegundo-numero").addEventListener("keyup",asignarValorDos);
 
 function asignarValorUno () {
     a = parseFloat(document.getElementById("idPrimer-numero").value); 
 }
-function asignarValorDos () {
-    b =  parseFloat(document.getElementById("idSegundo-numero").value);
+
+document.getElementById("idSuma").addEventListener("click",()=>calcular("suma"))
+document.getElementById("idResta").addEventListener("click",()=>calcular('resta'))
+document.getElementById("idMultiplicacion").addEventListener("click",()=>calcular('multiplicacion'))
+document.getElementById("idDivision").addEventListener("click",()=>calcular('division'))
+document.getElementById("IdIgual").addEventListener("click",()=>calcular('mostrar'))
+
+var ResultadoOP = 0;
+var primerav =1;
+var op1,op2;
+var symbolo,sResultado,msResultado;
+
+var calcular = (operacion) =>{
+     op1 = op2;
+     op2 = operacion;
+     if (operacion == "mostrar"){
+         a=0;
+     }
+    if (isNaNI(a)) {
+        document.getElementById("idResultado").value = 'Err';
+    }else{
+    calculara (op1,a);
+    }    
 }
 
-document.getElementById("idSuma").addEventListener("click",()=>suma(a,b))
-document.getElementById("idResta").addEventListener("click",()=>resta(a,b))
-document.getElementById("idMultiplicacion").addEventListener("click",()=>multiplicacion(a,b))
-document.getElementById("idDivision").addEventListener("click",()=>division(a,b))
+var calculara = (operaciona,numa) =>{
+console.log(a);
+   switch (operaciona)
+        {
+    case 'suma':
+         ResultadoOP = ResultadoOP + numa;
+         symbolo = "+";
+         break;
+    case "resta":  
+         ResultadoOP = ResultadoOP - numa;
+         symbolo = "-";
+         break;
+    case "multiplicacion": 
+        ResultadoOP = numa * ResultadoOP;
+        symbolo = "*";
+         break;
+    case "division":  
+         ResultadoOP=ResultadoOP/numa;
+         symbolo = "/";
+         break;
+    case "mostrar":
+        document.getElementById("idResultado").value = ResultadoOP;
+        msResultado ="";
+        primerav =1;
+        ResultadoOP=0;
+        a = 0;
+        }
 
-var suma = (uno,dos) =>  (isNaNI(uno,dos)) ?document.getElementById("idResultado").value = 'Err':document.getElementById("idResultado").value = uno + dos;
-var resta = (uno,dos) => (isNaNI(uno,dos)) ?document.getElementById("idResultado").value = 'Err':document.getElementById("idResultado").value = uno - dos;
-var multiplicacion = (uno,dos) => (isNaNI(uno,dos)) ?document.getElementById("idResultado").value = 'Err':document.getElementById("idResultado").value = uno * dos;
-var division = (uno,dos) =>(isNaNI(uno,dos)) ?document.getElementById("idResultado").value = 'Err':document.getElementById("idResultado").value = uno / dos;
+   sResultado = parseInt(ResultadoOP);
+   msResultado = msResultado + symbolo + a ;
+    if (primerav){
+        console.log("primerea");
+        console.log(a);
+        ResultadoOP = a;
+        primerav = 0;
+        msResultado = a;
+        console.log(msResultado);
+    }
+   document.getElementById("idPrimer-numero").value = "";
+   document.getElementById("idResultado").value =msResultado + "=" +ResultadoOP;
+}
 
-var isNaNI = (uno,dos) => ( isNaN(uno)||isNaN(dos))?true:false;
+
+var isNaNI = (uno) => ( isNaN(uno))?true:false;
+
+
+
+
+
+
+
+
