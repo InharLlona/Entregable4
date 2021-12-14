@@ -21,28 +21,19 @@ document.getElementById("idMultiplicacion").addEventListener("click",()=>calcula
 document.getElementById("idDivision").addEventListener("click",()=>calcular('division'))
 document.getElementById("IdIgual").addEventListener("click",()=>calcular('mostrar'))
 
-var ResultadoOP = 0;
-var primerav =1;
 var op1,op2;
 var symbolo,sResultado,msResultado;
-
 
 var calcular = (operacion) =>{
     document.getElementById("idPrimer-numero").value = "";
     opeeje = op1;
     op1 = operacion;
-
 if (primerav == 1){
     display (false);    
-}else{  
-   
-        calculara (opeeje,b);
-       
-    }  
+    }else{  calculara (opeeje,b); }  
 }
 
 var calculara = (operaciona,numa) =>{
-    console.log(b);
    switch (operaciona)
         {
     case 'suma':
@@ -72,16 +63,11 @@ var calculara = (operaciona,numa) =>{
 var display = (rst) =>{
     if (primerav){
         document.getElementById("idResultado").value =a;
-        ResultadoOP = a;
-        msResultado = a;
+        ResultadoOP,msResultado = a;
         primerav =0;
         }else{
             if(rst==true){
-                a="";
-                b="";
-                opeeje = "";
-                op1 = "";
-                msResultado = 0;
+                a,b,opeeje,op1,msResultado="";
                 document.getElementById("idResultado").value =ResultadoOP;
                 primerav =1;
             }else{
