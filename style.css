@@ -1,7 +1,10 @@
 .cContenedor{
     display:flex;
 }
-
+.cTotal{
+    display: flexx;
+    flex-direction:column;
+}
 
 .cNumeros{
     display: flex;

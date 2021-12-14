@@ -9,21 +9,36 @@
 </head>
 <h1>Calculadora secuencial con histórico</h1>
 <body>
+    <div class="cTotal">
     <div class="cContenedor">
         <div class="cNumeros">
-            <label for="Primer numero">Operando</label>
-            <input type="number" id="idPrimer-numero">
-            <label for="idResultado">Resultado</label>
-            <input type="text" id="idResultado">
+              <select id="idTipo">
+                  <option value="Standar">Standar</option>
+                  <option value="Suite">Suite</option>
+                  <option value="JuniorSuite">Junior Suite</option>
+              </select>
+              <label for="idSpa">Deseo disfrutar del Spa</label>
+              <input id="idSpa" type="checkbox">
+              <select id="idTamano">
+                <option value="individual">Individual</option>
+                <option value="doble">Doble</option>
+                <option value="triple">Trilpe</option>
+              </select>
+              <label for="idNumNoches">Número de noches</label>
+              <input id="idNumNoches" type="number" placeholder="0">
+              <label for="idNumParking">Número de noches parking</label>
+              <input id="idNumParking" type="number" placeholder="0">
+              <buton></buton>
         </div>
         <div class="cOperadores">
-            <button id="idSuma">+</button>
-            <button id="idResta">-</button>
-            <button id="idDivision">/</button>
-            <button id="idMultiplicacion">*</button>
-            <button id="IdIgual">=</button>
+            <label for="idPrecio">Total</label>
+            <input id="idPrecio" type="text">
         </div>
     </div>
+    <div>
+        <h4 id="idPrecioTexto"></h2>
+    </div>
+   </div>
    <script src="js.js"></script>
 </body>
 </html>
