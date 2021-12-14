@@ -1,10 +1,18 @@
 
-
-
+var primerav =1;
+var ResultadoOP = 0;
 document.getElementById("idPrimer-numero").addEventListener("keyup",asignarValorUno);
 
 function asignarValorUno () {
-    a = parseFloat(document.getElementById("idPrimer-numero").value); 
+    if (primerav){
+    a = parseFloat(document.getElementById("idPrimer-numero").value);
+    if (isNaN(a)){
+        document.getElementById("idResultado").value ="Err";
+        asignarValorUno();
+    } 
+    }else{
+    b = parseFloat(document.getElementById("idPrimer-numero").value);
+    }
 }
 
 document.getElementById("idSuma").addEventListener("click",()=>calcular("suma"))
@@ -18,21 +26,23 @@ var primerav =1;
 var op1,op2;
 var symbolo,sResultado,msResultado;
 
+
 var calcular = (operacion) =>{
-     op1 = op2;
-     op2 = operacion;
-     if (operacion == "mostrar"){
-         a=0;
-     }
-    if (isNaNI(a)) {
-        document.getElementById("idResultado").value = 'Err';
-    }else{
-    calculara (op1,a);
-    }    
+    document.getElementById("idPrimer-numero").value = "";
+    opeeje = op1;
+    op1 = operacion;
+
+if (primerav == 1){
+    display (false);    
+}else{  
+   
+        calculara (opeeje,b);
+       
+    }  
 }
 
 var calculara = (operaciona,numa) =>{
-console.log(a);
+    console.log(b);
    switch (operaciona)
         {
     case 'suma':
@@ -51,29 +61,35 @@ console.log(a);
          ResultadoOP=ResultadoOP/numa;
          symbolo = "/";
          break;
-    case "mostrar":
-        document.getElementById("idResultado").value = ResultadoOP;
-        msResultado ="";
-        primerav =1;
-        ResultadoOP=0;
-        a = 0;
         }
-
-   sResultado = parseInt(ResultadoOP);
-   msResultado = msResultado + symbolo + a ;
-    if (primerav){
-        console.log("primerea");
-        console.log(a);
-        ResultadoOP = a;
-        primerav = 0;
-        msResultado = a;
-        console.log(msResultado);
-    }
-   document.getElementById("idPrimer-numero").value = "";
-   document.getElementById("idResultado").value =msResultado + "=" +ResultadoOP;
+   if (op1 == "mostrar"){ 
+    display(true); 
+   }else{
+   display(false);
+   }
 }
 
-
+var display = (rst) =>{
+    if (primerav){
+        document.getElementById("idResultado").value =a;
+        ResultadoOP = a;
+        msResultado = a;
+        primerav =0;
+        }else{
+            if(rst==true){
+                a="";
+                b="";
+                opeeje = "";
+                op1 = "";
+                msResultado = 0;
+                document.getElementById("idResultado").value =ResultadoOP;
+                primerav =1;
+            }else{
+                msResultado= msResultado +symbolo +b;
+                document.getElementById("idResultado").value =msResultado + "=" + ResultadoOP;
+            }
+        }
+}
 var isNaNI = (uno) => ( isNaN(uno))?true:false;
 
 
