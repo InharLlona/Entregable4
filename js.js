@@ -6,10 +6,6 @@ document.getElementById("idPrimer-numero").addEventListener("keyup",asignarValor
 function asignarValorUno () {
     if (primerav){
     a = parseFloat(document.getElementById("idPrimer-numero").value);
-    if (isNaN(a)){
-        document.getElementById("idResultado").value ="Err";
-        asignarValorUno();
-    } 
     }else{
     b = parseFloat(document.getElementById("idPrimer-numero").value);
     }
@@ -63,12 +59,13 @@ var calculara = (operaciona,numa) =>{
 var display = (rst) =>{
     if (primerav){
         document.getElementById("idResultado").value =a;
-        ResultadoOP,msResultado = a;
+        ResultadoOP = msResultado = a;
         primerav =0;
         }else{
             if(rst==true){
-                a,b,opeeje,op1,msResultado="";
+                a = b = opeeje = op1 = msResultado="";
                 document.getElementById("idResultado").value =ResultadoOP;
+                ResultadoOP="";
                 primerav =1;
             }else{
                 msResultado= msResultado +symbolo +b;
